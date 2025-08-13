@@ -1,21 +1,17 @@
-FROM --platform=$BUILDPLATFORM node:20-alpine
+# Node image hỗ trợ multi-arch, không cần BUILDPLATFORM
+FROM node:20-alpine
+
 WORKDIR /app
 
-
-# Copy package.json & lock trước
 COPY package*.json ./
 
-# Cài dependencies
+# Chỉ cài dependencies, tránh dev deps nếu không cần
 RUN npm ci
 
-# Copy toàn bộ source code
 COPY . .
 
-# Build app
 RUN npm run build
 
-# Expose cổng app
 EXPOSE 3000
 
-# Start server
 CMD ["npm", "start"]
