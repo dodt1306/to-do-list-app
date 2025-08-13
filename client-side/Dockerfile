@@ -16,7 +16,7 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Cài serve (chỉ cần package này cho production)
-RUN npm install -g serve
+FROM --platform=linux/arm64 node:20-alpine
 
 # Copy build output từ stage 1
 COPY --from=build /app/dist ./dist
