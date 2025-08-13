@@ -1,5 +1,5 @@
 # Node image hỗ trợ multi-arch, không cần BUILDPLATFORM
-FROM --platform=linux/arm64 node:20-alpine
+FROM --platform=linux/arm64 node:20-alpine  AS build
 
 WORKDIR /app
 
