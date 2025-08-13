@@ -24,7 +24,7 @@ public class MemberController {
 
   @GetMapping
   public ResponseEntity<String> findAll() {
-    return ResponseEntity.ok("cccc");
+        return ResponseEntity.ok(service.findAll());
   }
 
 }
